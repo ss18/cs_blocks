@@ -13,7 +13,10 @@ def measure_time_ms(func=None, *, precision=3):
             if len(args) == 3:
                 input_size = abs(args[1] - args[2])
             else:
-                input_size = len(args[0]) if args else 0
+                if type(args[0]) in (list, set, dict, str):
+                    input_size = len(args[0])
+                else:
+                    input_size = args[0]
             print(f"'{inner_func.__name__}' executed in {elapsed_ms:.{precision}f} ms for input size {input_size}")
             return result
         return wrapper
