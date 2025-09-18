@@ -24,9 +24,17 @@ def f1(array: List[int], start: int, end: int) -> int:
             total += array[i] + array[j]
     return total
 
+@measure_time_ms
+def f2(array: List[int], start: int, end: int) -> None:
+    for i in range(start, end):
+        for j in range(start, end - (i - start) - 1):
+            if array[j] > array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+
+
 def repeat(func: Callable[[List[int], int, int], None], times: int = 1, factor: int = 10) -> None:
     print("Creating data...")
     array = np.random.randint(1, 10**10, size=factor**times).tolist()
     for i in range(times):
-        end = factor    **i
+        end = factor**i
         func(array, 0, end)

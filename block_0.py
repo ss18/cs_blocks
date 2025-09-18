@@ -4,7 +4,6 @@ from typing import List, Callable, Set
 import numpy as np
 import string
 
-
 @measure_time_ms(precision=4)
 def f0(array: List[int], start: int, end: int) -> int:
     random_index = random.randint(start, end)
