@@ -8,7 +8,7 @@ def f0(n: int):
 
 
 def repeat():
-    for i in range(1, 30):
+    for i in range(1, 40):
         start_time = time.perf_counter()
         f0(i)
         end_time = time.perf_counter()

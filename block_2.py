@@ -29,12 +29,12 @@ def f0(array: List[int], value: int) -> int:
     return index
 
 
-@measure_time_ms(precision=6)
+@measure_time_ms(precision=4)
 def f1(array: List[int], value: int) -> int:
     return bisect.bisect_left(array, value)
 
 
-@measure_time_ms(precision=6)
+@measure_time_ms(precision=4)
 def f2(array: List[int], value: int) -> int:
     for i, e in enumerate(array):
         if e == value:

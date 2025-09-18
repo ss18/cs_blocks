@@ -1,5 +1,6 @@
 import time
 from functools import wraps
+import numpy as np
 
 
 def measure_time_ms(func=None, *, precision=3):
@@ -13,7 +14,7 @@ def measure_time_ms(func=None, *, precision=3):
             if len(args) == 3:
                 input_size = abs(args[1] - args[2])
             else:
-                if type(args[0]) in (list, set, dict, str):
+                if type(args[0]) in (list, set, dict, str, np.ndarray):
                     input_size = len(args[0])
                 else:
                     input_size = args[0]

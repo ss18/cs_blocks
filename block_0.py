@@ -6,8 +6,8 @@ import string
 
 @measure_time_ms(precision=4)
 def f0(array: List[int], start: int, end: int) -> int:
-    random_index = random.randint(start, end)
-    return array[random_index]
+    index = (start + end) // 2
+    return array[index]
 
 @measure_time_ms
 def f1(collection: Set[int]) -> None:
